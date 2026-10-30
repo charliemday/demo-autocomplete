@@ -7,7 +7,7 @@ No backend, no API keys. Load the unpacked extension, set a Groq key in its opti
 ## How to try it
 
 1. Load the unpacked Autocomplete extension in Chrome.
-2. Set a Groq key on the extension options page.
+2. Set a Groq key — on the live page, that step links to the extension options field (or [console.groq.com/keys](https://console.groq.com/keys) if the extension is not loaded).
 3. Open this page and type in a **Should complete** field.
 4. Press `Tab` to accept ghost text, or `Escape` to dismiss it.
 
