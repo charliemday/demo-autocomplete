@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Autocomplete</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="intro">
+        <p class="kicker">Testing ground</p>
+        <h1>Demo Autocomplete <span class="ghost" aria-hidden="true">as you type</span></h1>
+        <p class="lede">
+          A quiet page of fields for the Autocomplete Chrome extension. Type,
+          wait for ghost text, then accept or dismiss.
+        </p>
+        <ol class="steps">
+          <li>Load the unpacked Autocomplete extension</li>
+          <li>Set a Groq key</li>
+          <li>Type here</li>
+          <li><kbd>Tab</kbd> to accept</li>
+          <li><kbd>Escape</kbd> to dismiss</li>
+        </ol>
+      </header>
+
+      <section class="panel" aria-labelledby="complete-heading">
+        <h2 id="complete-heading">Should complete</h2>
+        <p class="hint">Ghost text belongs in these fields.</p>
+
+        <label for="plain-text">Text</label>
+        <input id="plain-text" name="plain-text" type="text" autocomplete="off" placeholder="Start a sentence…" />
+
+        <label for="search">Search</label>
+        <input id="search" name="search" type="search" autocomplete="off" placeholder="Find something…" />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="off" placeholder="name@" />
+
+        <label for="notes">Long text</label>
+        <textarea id="notes" name="notes" rows="8" autocomplete="off" placeholder="Write a few lines and leave the caret at the end…"></textarea>
+
+        <label for="editor">Contenteditable</label>
+        <div
+          id="editor"
+          class="editor"
+          contenteditable="true"
+          role="textbox"
+          aria-multiline="true"
+          data-placeholder="Click and type here…"
+        ></div>
+      </section>
+
+      <section class="panel skip" aria-labelledby="skip-heading">
+        <h2 id="skip-heading">Should skip</h2>
+        <p class="hint">Password and payment fields must stay silent. No ghost text here.</p>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" placeholder="••••••••" />
+
+        <label for="cc-number">Credit card number</label>
+        <input
+          id="cc-number"
+          name="cc-number"
+          type="text"
+          inputmode="numeric"
+          autocomplete="cc-number"
+          placeholder="Ignored because autocomplete=cc-number"
+        />
+      </section>
+    </main>
+  </body>
+</html>

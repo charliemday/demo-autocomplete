@@ -1,0 +1,187 @@
+:root {
+  --paper: #e7eef6;
+  --ink: #15202b;
+  --muted: #5a6a7a;
+  --field: #fbfcfe;
+  --line: #c3d0de;
+  --ghost: #8fa0b2;
+  --complete: #2156c9;
+  --skip-wash: #f3e6dc;
+  --skip-line: #d7b9a4;
+  --skip-ink: #7a3b16;
+  --focus: #2156c9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 480px at 12% -10%, #dbe6f3 0%, transparent 60%),
+    var(--paper);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  width: min(42rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 3.25rem 0 4.5rem;
+}
+
+.kicker {
+  margin: 0 0 0.65rem;
+  color: var(--complete);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 0.85rem;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 2.85rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.ghost {
+  color: var(--ghost);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lede {
+  margin: 0 0 1.35rem;
+  max-width: 36rem;
+  color: var(--muted);
+}
+
+.steps {
+  margin: 0 0 2.5rem;
+  padding: 1rem 1.15rem 1rem 2.15rem;
+  background: color-mix(in srgb, white 62%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.steps li + li {
+  margin-top: 0.28rem;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.05em 0.4em;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--field);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.84em;
+}
+
+.panel {
+  padding: 1.35rem 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  background: color-mix(in srgb, white 74%, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.panel.skip {
+  background: var(--skip-wash);
+  border-color: var(--skip-line);
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.panel.skip h2 {
+  color: var(--skip-ink);
+}
+
+.hint {
+  margin: 0.2rem 0 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+label {
+  display: block;
+  margin: 0.9rem 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+input,
+textarea,
+.editor {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  color: var(--ink);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  line-height: 1.45;
+}
+
+textarea,
+.editor {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.editor {
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.editor:empty::before {
+  content: attr(data-placeholder);
+  color: var(--ghost);
+}
+
+.panel.skip input {
+  background: #fffaf6;
+  border-color: var(--skip-line);
+}
+
+input:focus,
+textarea:focus,
+.editor:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(42rem, calc(100% - 1.5rem));
+    padding-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+}
